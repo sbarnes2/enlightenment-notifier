@@ -53,6 +53,7 @@ async function initData(){
     console.log('entering initdata.........');
     const userdata_res = await db.any('select distinct userid,username,email_address from user_training_needed order by userid; ',);
     console.log(JSON.stringify(userdata_res));
+    userdata = userdata_res;
     console.log('exiting initdata');
     //userdata : userdata [] = userdata_res
 }
@@ -147,7 +148,7 @@ function Main(){
     processUsersAndCreateEmails(0);
 
     //send data
-    //sendEmail();
+    //sendEmail(); <-- uncomment to send emails.
 
 
     //tidy up
